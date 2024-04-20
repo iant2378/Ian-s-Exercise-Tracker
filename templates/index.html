@@ -1,10 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ian's Calorie Counter</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calorie Counter</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                background-color: #f0f0f0;
+                margin: 0;
+                padding: 0;
+            }
+            h1 {
+                color: #333;
+            }
+            p {
+                color: #666;
+            }
+            form {
+                margin-top: 20px;
+            }
+            label {
+                font-size: 18px;
+                margin-right: 10px;
+                color: #333;
+            }
+            input[type="number"] {
+                padding: 8px;
+                font-size: 16px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+            }
+            button {
+                padding: 8px 20px;
+                font-size: 16px;
+                border-radius: 5px;
+                border: none;
+                background-color: #007bff;
+                color: #fff;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #0056b3;
+            }
+        </style>
+    </head>
 <body>
     <h1>Ian's Calorie Counter</h1>
     <p>Total Calories: {{ calories }}</p>
