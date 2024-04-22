@@ -1,71 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Calorie Counter</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                text-align: center;
-                background-color: #f0f0f0;
-                margin: 0;
-                padding: 0;
-            }
-            h1 {
-                color: #333;
-            }
-            p {
-                color: #666;
-            }
-            form {
-                margin-top: 20px;
-            }
-            label {
-                font-size: 18px;
-                margin-right: 10px;
-                color: #333;
-            }
-            input[type="number"] {
-                padding: 8px;
-                font-size: 16px;
-                border-radius: 5px;
-                border: 1px solid #ccc;
-            }
-            button {
-                padding: 8px 20px;
-                font-size: 16px;
-                border-radius: 5px;
-                border: none;
-                background-color: #007bff;
-                color: #fff;
-                cursor: pointer;
-            }
-            button:hover {
-                background-color: #0056b3;
-            }
-        </style>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ian's Calorie Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: green;
+        }
+        #calories {
+            font-size: 18px;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 8px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
 <body>
     <h1>Ian's Calorie Counter</h1>
-    <p>Total Calories: {{ calories }}</p>
-    <form action="/add_calories" method="POST">
-        <label for="calories">Enter Calories to Add:</label>
-        <input type="number" id="calories" name="calories" required>
-        <button type="submit">Add Calories</button>
-    </form>
-    <form action="/reset_calories" method="POST">
-        <button type="submit">Reset Calories</button>
-    </form>
-<section>
-<h2>Workout plans</h2>
-<p>If you want to lose weight:</p>
-<p>If you want to gain weight:</p>
-<p>If you want to gain muscle:</p>
-</section>
+    <div>
+        <input type="number" id="calories" placeholder="Enter Calories" required>
+        <button onclick="addCalories()">Add Calories</button>
+        <button onclick="resetCalories()">Reset Calories</button>
+    </div>
+    <p>Total Calories: <span id="total">0</span></p>
+    <div>
+        <a href="C:/Users/ian10/OneDrive/Documents/New%20folder/Ian-s-Exercise-Tracker/templates/page1.html"><button>Want to gain weight?</button></a>
+        <a href="/page2"><button>Want to lose weight?</button></a>
+        <a href="/page3"><button>Want to gain muscle?</button></a>
+    </div>
+    <script>
+        let totalCalories = 0;
 
+        function addCalories() {
+            const inputField = document.getElementById("calories");
+            const caloriesToAdd = parseInt(inputField.value);
+            if (!isNaN(caloriesToAdd)) {
+                totalCalories += caloriesToAdd;
+                document.getElementById("total").innerText = totalCalories;
+                inputField.value = ""; // Clear input field
+            }
+        }
 
-
-
+        function resetCalories() {
+            totalCalories = 0;
+            document.getElementById("total").innerText = totalCalories;
+        }
+    </script>
 </body>
 </html>
